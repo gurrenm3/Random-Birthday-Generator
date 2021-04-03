@@ -26,11 +26,12 @@ namespace Random_Birthday_Generator
             for (int i = 0; i < numBirthdays; i++)
             {
                 var tempBirthday = new Birthday();
+                tempBirthday.RandomizeBirthday();
 
-                Birthday duplicate = birthdays.FirstOrDefault(item => item.IsEqual(tempBirthday));
-                while (duplicate != null)
+                Birthday? duplicate = birthdays.FirstOrDefault(item => item.IsEqual(tempBirthday));
+                while (duplicate.HasValue)
                 {
-                    tempBirthday = new Birthday();
+                    tempBirthday.RandomizeBirthday();
                     duplicate = birthdays.FirstOrDefault(item => item.IsEqual(tempBirthday));
                 }
 

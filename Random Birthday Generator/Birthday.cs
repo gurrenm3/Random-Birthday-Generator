@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace Random_Birthday_Generator
 {
-    class Birthday
+    struct Birthday
     {
         private static Random rand = new Random();
         public int Year { get; set; }
         public int Month { get; set; }
         public int Day { get; set; }
+        
 
-        public Birthday()
+        public void RandomizeBirthday()
         {
             Year = rand.Next(1936, 2022);
             Month = rand.Next(1, 13);
